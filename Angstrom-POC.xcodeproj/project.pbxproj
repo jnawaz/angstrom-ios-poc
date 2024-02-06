@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		9112735B2B722C8F0016A9AA /* Angstrom_POCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9112735A2B722C8F0016A9AA /* Angstrom_POCApp.swift */; };
 		9112735D2B722C8F0016A9AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9112735C2B722C8F0016A9AA /* ContentView.swift */; };
-		9112735F2B722C8F0016A9AA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9112735E2B722C8F0016A9AA /* Item.swift */; };
 		911273612B722C900016A9AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 911273602B722C900016A9AA /* Assets.xcassets */; };
 		911273642B722C900016A9AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 911273632B722C900016A9AA /* Preview Assets.xcassets */; };
 		9112736E2B722C900016A9AA /* Angstrom_POCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9112736D2B722C900016A9AA /* Angstrom_POCTests.swift */; };
 		911273782B722C900016A9AA /* Angstrom_POCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911273772B722C900016A9AA /* Angstrom_POCUITests.swift */; };
 		9112737A2B722C900016A9AA /* Angstrom_POCUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911273792B722C900016A9AA /* Angstrom_POCUITestsLaunchTests.swift */; };
+		911273882B723F150016A9AA /* Hexagon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911273872B723F150016A9AA /* Hexagon.swift */; };
+		9112738A2B724ABE0016A9AA /* PlayerSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911273892B724ABE0016A9AA /* PlayerSelection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,6 @@
 		911273572B722C8F0016A9AA /* Angstrom-POC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Angstrom-POC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9112735A2B722C8F0016A9AA /* Angstrom_POCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Angstrom_POCApp.swift; sourceTree = "<group>"; };
 		9112735C2B722C8F0016A9AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		9112735E2B722C8F0016A9AA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		911273602B722C900016A9AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		911273632B722C900016A9AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		911273692B722C900016A9AA /* Angstrom-POCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Angstrom-POCTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +46,8 @@
 		911273732B722C900016A9AA /* Angstrom-POCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Angstrom-POCUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		911273772B722C900016A9AA /* Angstrom_POCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Angstrom_POCUITests.swift; sourceTree = "<group>"; };
 		911273792B722C900016A9AA /* Angstrom_POCUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Angstrom_POCUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		911273872B723F150016A9AA /* Hexagon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hexagon.swift; sourceTree = "<group>"; };
+		911273892B724ABE0016A9AA /* PlayerSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,11 +98,12 @@
 		911273592B722C8F0016A9AA /* Angstrom-POC */ = {
 			isa = PBXGroup;
 			children = (
+				911273862B723F0B0016A9AA /* Shapes */,
 				9112735A2B722C8F0016A9AA /* Angstrom_POCApp.swift */,
 				9112735C2B722C8F0016A9AA /* ContentView.swift */,
-				9112735E2B722C8F0016A9AA /* Item.swift */,
 				911273602B722C900016A9AA /* Assets.xcassets */,
 				911273622B722C900016A9AA /* Preview Content */,
+				911273892B724ABE0016A9AA /* PlayerSelection.swift */,
 			);
 			path = "Angstrom-POC";
 			sourceTree = "<group>";
@@ -128,6 +131,14 @@
 				911273792B722C900016A9AA /* Angstrom_POCUITestsLaunchTests.swift */,
 			);
 			path = "Angstrom-POCUITests";
+			sourceTree = "<group>";
+		};
+		911273862B723F0B0016A9AA /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				911273872B723F150016A9AA /* Hexagon.swift */,
+			);
+			path = Shapes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,8 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9112735D2B722C8F0016A9AA /* ContentView.swift in Sources */,
-				9112735F2B722C8F0016A9AA /* Item.swift in Sources */,
 				9112735B2B722C8F0016A9AA /* Angstrom_POCApp.swift in Sources */,
+				911273882B723F150016A9AA /* Hexagon.swift in Sources */,
+				9112738A2B724ABE0016A9AA /* PlayerSelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
