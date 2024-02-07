@@ -25,6 +25,8 @@ struct ContentView: View {
             ZStack {
                 Image("FootballPitch")
                     .opacity(0.65)
+                    .offset(x: 0, y: -830)
+                    .zIndex(-1000.0)
                 
                 NavigationLink(destination: PlayerSelection(onPlayerSelected: { playerData in
                     print(playerData)
@@ -38,15 +40,16 @@ struct ContentView: View {
                 .frame(width: 140, height: 130)
                 
                 Text("MD")
-                    .font(.headline)
-                    .padding(.top, 80)
+                    .foregroundColor(.gray)
+                    .opacity(0.65)
+                    .font(.title)
                 
                 
                 ForEach(0..<6) { index in
                     let color: Color = colorForHex(index: index)
                     let degreesPerSide = Double.pi / 3
                     let initialAngleOffset = Double.pi / 6
-                    let radius = 140.0 // Make sure to use a decimal point to indicate a floating-point number
+                    let radius = 140.0
                     
                     let angle = Double(index) * degreesPerSide + initialAngleOffset
                     let xOffset: CGFloat = CGFloat(radius * cos(angle))
@@ -56,7 +59,6 @@ struct ContentView: View {
                         HexagonImage(playerName: selectedPlayers.first!.name, imageName: selectedPlayers.first!.imageName)
                             .offset(x: xOffset, y: yOffset)
                     } else {
-                        
                         ZStack {
                             NavigationLink(destination: PlayerSelection(onPlayerSelected: { playerRowData in
                                 print(playerRowData)
@@ -71,16 +73,15 @@ struct ContentView: View {
                             .offset(x: xOffset, y: yOffset)
                             
                             Text(positions[index])
-                                .font(.headline)
-                                .padding(.top, 80)
+                                .foregroundColor(Color.gray)
+                                .font(.title)
+                                .opacity(0.65)
                                 .offset(x: xOffset, y: yOffset)
                         }
-                        
-                        
                     }
                     
-                    
                 }
+                
             }
             .background(Color.purple)
             .toolbar {
@@ -89,7 +90,14 @@ struct ContentView: View {
                         .resizable()
                         .frame(width:24, height: 24)
                         .foregroundStyle(Color.white)
-                    
+                }
+                
+                ToolbarItem(placement: .principal) {
+                    Image("Super7")
+                        .resizable()
+                        .offset(x: 0, y: self.selectedPlayers.count > 0 ? 0 : 20)
+                        .frame(width: self.selectedPlayers.count > 0 ? 20 : 30, height: self.selectedPlayers.count > 0 ? 38 : 57)
+                        .foregroundStyle(Color.white)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -99,8 +107,34 @@ struct ContentView: View {
                         .foregroundStyle(Color.white)
                 }
             }
+            
+            
         }
-        
+        if selectedPlayers.count > 0 {
+            ZStack {
+                VStack {
+                    Button {} label: {
+                        Text("Auto Pick")
+                            .foregroundStyle(Color.white)
+                            .font(.headline)
+                    }
+                    .frame(width: 320.0)
+                    .padding()
+                    .background(.green)
+                    .cornerRadius(8.0)
+                    
+                    Button {} label: {
+                        Text("Create Bet")
+                            .foregroundStyle(Color.white)
+                            .font(.headline)
+                    }
+                    .frame(width: 320.0)
+                    .padding()
+                    .background(.green)
+                    .cornerRadius(8.0)
+                }
+            }
+        }
     }
     
     
@@ -133,7 +167,6 @@ struct HexagonImage: View {
                 Image(imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                //                .frame(width: geometry.size.width, height: geometry.size.height)
                     .frame(width: 140, height: 130)
                     .clipShape(Hexagon())
                     .overlay(
@@ -143,13 +176,13 @@ struct HexagonImage: View {
                     .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
                 
                 Text(playerName)
-                               
-//                    .font(.system(size: geometry.size.width / CGFloat(playerName.count + 8))) // Adjust font size dynamically
-//                    .frame(maxWidth: geometry.size.width / 2)
-//                    .position(x: (geometry.size.width / 2), y: (geometry.size.height / 2) + 40)
+                
+                //                    .font(.system(size: geometry.size.width / CGFloat(playerName.count + 8))) // Adjust font size dynamically
+                //                    .frame(maxWidth: geometry.size.width / 2)
+                //                    .position(x: (geometry.size.width / 2), y: (geometry.size.height / 2) + 40)
                     .lineLimit(1)
                     .multilineTextAlignment(.center)
-//                    .clipShape(Hexagon())
+                //                    .clipShape(Hexagon())
             }
             
         }
