@@ -113,7 +113,7 @@ struct ContentView: View {
             
             
         }
-        if selectedPlayers.count > 0 {
+        
             ZStack {
                 VStack {
                     Button {} label: {
@@ -125,7 +125,7 @@ struct ContentView: View {
                     .padding()
                     .background(.green)
                     .cornerRadius(8.0)
-                    
+                    if selectedPlayers.count > 0 {
                     Button {} label: {
                         Text("Create Bet")
                             .foregroundStyle(Color.white)
