@@ -95,8 +95,8 @@ struct ContentView: View {
                 ToolbarItem(placement: .principal) {
                     Image("Super7")
                         .resizable()
-                        .offset(x: 0, y: self.selectedPlayers.count > 0 ? 0 : 20)
-                        .frame(width: self.selectedPlayers.count > 0 ? 20 : 30, height: self.selectedPlayers.count > 0 ? 38 : 57)
+//                        .offset(x: 0, y: self.selectedPlayers.count > 0 ? 0 : 20)
+                        .frame(width: 20, height: 38)
                         .foregroundStyle(Color.white)
                 }
                 
@@ -106,6 +106,9 @@ struct ContentView: View {
                         .frame(width: 24, height: 24)
                         .foregroundStyle(Color.white)
                 }
+            }
+            .onDisappear {
+                selectedPlayers = []
             }
             
             
