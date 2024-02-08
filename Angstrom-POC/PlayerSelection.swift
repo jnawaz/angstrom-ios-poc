@@ -15,23 +15,20 @@ struct PlayerSelection: View {
     @Environment(\.dismiss) var dismiss
     
     let players = [
-        PlayerRowData(name: "Kevin De Bruyne", imageName: "KDB", goalsScoredLastSeason: 10, teamName: "Manchester City F.C", ranking: "+1.3K"),
-        PlayerRowData(name: "Mohamed Salah", imageName: "MoSalah", goalsScoredLastSeason: 9, teamName: "Liverpool F.C", ranking: "+1.2K"),
-        PlayerRowData(name: "Harry Kane", imageName: "HarryKane", goalsScoredLastSeason: 4, teamName: "FC Bayern Munich", ranking: "-1.3K"),
-        PlayerRowData(name: "Bruno Fernandes", imageName: "BrunoFernandes", goalsScoredLastSeason: 14, teamName: "Manchester United", ranking: "+1K"),
-        PlayerRowData(name: "Sadio Mané", imageName: "SadioMane", goalsScoredLastSeason: 22, teamName: "Al-Nassr FC", ranking: "+1.8K"),
-        PlayerRowData(name: "Raheem Sterling", imageName: "RaheemSterling", goalsScoredLastSeason: 2, teamName: "Chelsea F.C", ranking: "+2K"),
-        PlayerRowData(name: "Virgil van Dijk", imageName: "VirgilVanDijk", goalsScoredLastSeason: 10, teamName: "Liverpool F.C", ranking: "+712"),
-        PlayerRowData(name: "Trent Alexander-Arnold", imageName: "TrentArnold", goalsScoredLastSeason: 9, teamName: "Liverpool F.C", ranking: "+650"),
-        PlayerRowData(name: "Jamie Vardy", imageName: "JamieVardy", goalsScoredLastSeason: 7, teamName: "Leicester City F.C", ranking: "+461"),
-        PlayerRowData(name: "Pierre-Emerick Aubameyang", imageName: "Aubameyang", goalsScoredLastSeason: 12, teamName: "Olympique de Marseille", ranking: "+200")
+        PlayerRowData(name: "Erling Haaland", imageName: "ErlingHaaland", goalsScoredLastSeason: 16, teamName: "Manchester City F.C", position: "FW"),
+        PlayerRowData(name: "Mohamed Salah", imageName: "MoSalah", goalsScoredLastSeason: 9, teamName: "Liverpool F.C", position: "FW"),
+        PlayerRowData(name: "Son Hueng-min", imageName: "SHM", goalsScoredLastSeason: 13, teamName: "Tottenham Hotspur F.C", position: "FW"),
+        PlayerRowData(name: "Cole Palmer", imageName: "ColePalmer", goalsScoredLastSeason: 6, teamName: "Chelsea F.C", position: "MD"),
+        PlayerRowData(name: "Bruno Fernandes", imageName: "BrunoFernandes", goalsScoredLastSeason: 4, teamName: "Manchester United F.C", position: "MD"),
+        PlayerRowData(name: "Declan Rice", imageName: "DeclanRice", goalsScoredLastSeason: 3, teamName: "Arsenal F.C", position: "MD"),
+        PlayerRowData(name: "Thiago Silva", imageName: "ThiagoSilva", goalsScoredLastSeason: 0, teamName: "Chelsea F.C", position: "DF")
     ]
     
     var body: some View {
         PlayerSelectionBanner()
             .navigationTitle("Player Selection")
         List {
-            ForEach(0..<10) { index in
+            ForEach(0..<6) { index in
                 
                 let player = players[index]
                 
@@ -40,7 +37,7 @@ struct PlayerSelection: View {
                     imageName: player.imageName,
                     goalsScored: player.goalsScoredLastSeason,
                     teamName: player.teamName,
-                    ranking: player.ranking
+                    position: player.position
                 )
                 .contentShape(
                     Rectangle()
@@ -70,7 +67,7 @@ struct PlayerRow: View {
     var imageName: String
     var goalsScored: Int
     var teamName: String
-    var ranking: String
+    var position: String
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -91,7 +88,7 @@ struct PlayerRow: View {
                         .font(.caption)
                 }
                 Spacer()
-                Text(ranking)
+                Text(position)
                     .font(.headline)
             }
             Text(teamName)
@@ -132,7 +129,8 @@ struct PlayerRowData {
     var imageName: String
     var goalsScoredLastSeason: Int
     var teamName: String
-    var ranking: String
+    //    var ranking: String
+    var position: String
 }
 
 #Preview {
