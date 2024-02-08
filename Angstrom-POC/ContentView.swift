@@ -17,9 +17,9 @@ struct ContentView: View {
         "MD",
         "DF",
         "MD",
-        "FW",
-        "FW",
-        "FW"
+        "FWD",
+        "FWD",
+        "FWD"
     ]
     
     @State var fwPlayers: [PlayerRowData] = []
@@ -39,7 +39,7 @@ struct ContentView: View {
                     selectedPlayers.append(playerData)
                 })) {
                     if mdPlayers.count > 0 {
-                        HexagonImage(playerName: mdPlayers[1].name, imageName: mdPlayers[1].imageName)
+                        HexagonImage(playerName: mdPlayers[1].lastName, imageName: mdPlayers[1].imageName)
                             .frame(width: 140, height: 130)
                     } else {
                         Hexagon()
@@ -69,7 +69,7 @@ struct ContentView: View {
                     if fwPlayers.count > 0 {
                         switch index {
                         case 3, 4, 5:
-                            HexagonImage(playerName: fwPlayers[index - 3].name, imageName: fwPlayers[index - 3].imageName)
+                            HexagonImage(playerName: fwPlayers[index - 3].lastName, imageName: fwPlayers[index - 3].imageName)
                                 .offset(x: xOffset, y: yOffset)
                         default:
                             EmptyView()
@@ -79,7 +79,7 @@ struct ContentView: View {
                     if mdPlayers.count > 0 {
                         switch index {
                         case 0, 2:
-                            HexagonImage(playerName: mdPlayers[index].name, imageName: mdPlayers[index].imageName)
+                            HexagonImage(playerName: mdPlayers[index].lastName, imageName: mdPlayers[index].imageName)
                                 .offset(x: xOffset, y: yOffset)
                         default:
                             EmptyView()
@@ -89,7 +89,7 @@ struct ContentView: View {
                     if dfPlayers.count > 0 {
                         switch index {
                         case 1:
-                            HexagonImage(playerName: dfPlayers[index - 1].name, imageName: dfPlayers[index - 1].imageName)
+                            HexagonImage(playerName: dfPlayers[index - 1].lastName, imageName: dfPlayers[index - 1].imageName)
                                 .offset(x: xOffset, y: yOffset)
                         default:
                             EmptyView()
@@ -97,7 +97,7 @@ struct ContentView: View {
                     }
                     
                     if selectedPlayers.count > 0 && index == 3 {
-                        HexagonImage(playerName: selectedPlayers.first!.name, imageName: selectedPlayers.first!.imageName)
+                        HexagonImage(playerName: selectedPlayers.first!.lastName, imageName: selectedPlayers.first!.imageName)
                             .offset(x: xOffset, y: yOffset)
                     } else {
                         ZStack {
@@ -167,20 +167,20 @@ struct ContentView: View {
                         autoPickSelected = true
                         selectedPlayers = []
                         fwPlayers = [
-                            PlayerRowData(name: "Erling Haaland", imageName: "ErlingHaaland", goalsScoredLastSeason: 16, teamName: "Manchester City F.C", position: "FW"),
-                            PlayerRowData(name: "Mohamed Salah", imageName: "MoSalah", goalsScoredLastSeason: 9, teamName: "Liverpool F.C", position: "FW"),
-                            PlayerRowData(name: "Son Hueng-min", imageName: "SHM", goalsScoredLastSeason: 13, teamName: "Tottenham Hotspur F.C", position: "FW")
+                            PlayerRowData(name: "Erling Haaland", lastName: "Haaland", imageName: "ErlingHaaland", goalsScoredLastSeason: 16, teamName: "Manchester City F.C", position: "FW"),
+                            PlayerRowData(name: "Mohamed Salah", lastName: "Salah", imageName: "MoSalah", goalsScoredLastSeason: 9, teamName: "Liverpool F.C", position: "FW"),
+                            PlayerRowData(name: "Son Hueng-min", lastName: "Min", imageName: "SHM", goalsScoredLastSeason: 13, teamName: "Tottenham Hotspur F.C", position: "FW")
                         ]
                         
                         mdPlayers = [
-                            PlayerRowData(name: "Cole Palmer", imageName: "ColePalmer", goalsScoredLastSeason: 6, teamName: "Chelsea F.C", position: "MD"),
-                            PlayerRowData(name: "Bruno Fernandes", imageName: "BrunoFernandes", goalsScoredLastSeason: 4, teamName: "Manchester United F.C", position: "MD"),
-                            PlayerRowData(name: "Declan Rice", imageName: "DeclanRice", goalsScoredLastSeason: 3, teamName: "Arsenal F.C", position: "MD"),
+                            PlayerRowData(name: "Cole Palmer", lastName: "Palmer", imageName: "ColePalmer", goalsScoredLastSeason: 6, teamName: "Chelsea F.C", position: "MD"),
+                            PlayerRowData(name: "Bruno Fernandes", lastName: "Fernandes", imageName: "BrunoFernandes", goalsScoredLastSeason: 4, teamName: "Manchester United F.C", position: "MD"),
+                            PlayerRowData(name: "Declan Rice", lastName: "Rice", imageName: "DeclanRice", goalsScoredLastSeason: 3, teamName: "Arsenal F.C", position: "MD"),
                             
                         ]
                         
                         dfPlayers = [
-                            PlayerRowData(name: "Thiago Silva", imageName: "ThiagoSilva", goalsScoredLastSeason: 0, teamName: "Chelsea F.C", position: "DF")
+                            PlayerRowData(name: "Thiago Silva", lastName: "Silva", imageName: "ThiagoSilva", goalsScoredLastSeason: 0, teamName: "Chelsea F.C", position: "DF")
                         ]
                     } label: {
                         Text("Auto Pick")
@@ -194,20 +194,20 @@ struct ContentView: View {
                     .cornerRadius(8.0)
                 }
                 
-                if selectedPlayers.count > 0 || autoPickSelected {
-                    Button {
-                        selectedPlayers = []
-                    } label: {
-                        Text("Create Bet")
-                            .foregroundStyle(Color.white)
-                            .font(.headline)
-                    }
-                    .frame(width: 320.0)
-                    .padding()
-                    .contentShape(Rectangle())
-                    .background(.green)
-                    .cornerRadius(8.0)
-                }
+//                if selectedPlayers.count > 0 || autoPickSelected {
+//                    Button {
+//                        selectedPlayers = []
+//                    } label: {
+//                        Text("Create Bet")
+//                            .foregroundStyle(Color.white)
+//                            .font(.headline)
+//                    }
+//                    .frame(width: 320.0)
+//                    .padding()
+//                    .contentShape(Rectangle())
+//                    .background(.green)
+//                    .cornerRadius(8.0)
+//                }
             }
         }
     }
@@ -251,7 +251,9 @@ struct HexagonImage: View {
                     .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
                 
                 Text(playerName)
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .offset(x: 0, y: 40)
                 
                 //                    .font(.system(size: geometry.size.width / CGFloat(playerName.count + 8))) // Adjust font size dynamically
                 //                    .frame(maxWidth: geometry.size.width / 2)
